@@ -12,6 +12,45 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Browser Template</h1>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Oak Barbell</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="#"> <span class="sr-only">(current)</span></a>
+      <div id="unauthenticated">
+      <form id="sign-up">
+        <input name="credentials[email]" placeholder="Email" type="text">
+        <input type="password" name="credentials[password]" placeholder="Password">
+        <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+        <button type="submit">Sign Up!</button>
+      </form>
+      <a class="nav-item nav-link" href="#"></a>
+      <form id="sign-in">
+        <input name="credentials[email]" placeholder="Email" type="text">
+        <input type="password" name="credentials[password]" placeholder="Password" >
+        <button type="submit">Sign In</button>
+      </form>
+      </div>
+      <div id="authenticated">
+      <a class="nav-item nav-link" href="#"></a>
+        <form id="sign-out">
+          <button type="submit">Sign Out</button>
+        </form>
+      <a class="nav-item nav-link" href="#"></a>
+      <form id="change-password">
+        <input name="passwords[old]" placeholder="Old Password" type="password">
+        <input name="passwords[new]" placeholder="New Password" type="password">
+        <button type="submit">Change Password</button>
+      </form>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+
     </body>
 </html>
