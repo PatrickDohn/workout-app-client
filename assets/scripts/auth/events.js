@@ -43,9 +43,56 @@ const onSignOut = function (event) {
     .catch(ui.signOutFail)
 }
 
+const onSaveWorkout = function (event) {
+  event.preventDefault()
+  const form = event.target
+  console.log('Where am i', form)
+  const formData = getFormFields(form)
+  console.log('Save workout', formData)
+  api.saveWorkout(formData)
+    .then(ui.saveWorkoutSuccess)
+    .catch(ui.saveWorkoutFailure)
+}
+const onShowWorkouts = function (event) {
+  event.preventDefault()
+  $('.workoutForm').hide()
+  api.showWorkouts()
+    .then(ui.showWorkoutsSuccess)
+    .catch(ui.showWorkoutsFailure)
+}
+const onNewWorkout = function (event) {
+  $('.workoutForm').show()
+  $('.content').empty()
+}
+const onDeleteWorkout = (event) => {
+  event.preventDefault()
+  const workoutId = $(event.target.id).closest('section').data('id')
+  console.log(workoutId)
+  api.deleteWorkout(workoutId)
+    .then(ui.updateWorkoutSuccess)
+    .then(() => onShowWorkouts(event))
+    .catch(ui.updateWorkoutFailure)
+}
+
+const onUpdateWorkouts = function (event) {
+  event.preventDefault()
+  const form = event.target
+  const formData = getFormFields(form)
+  const id = $(event.target).closest('section').data('id')
+  console.log('update workout')
+  api.updateWorkout(id, formData)
+    .then(ui.updateWorkoutSuccess)
+    .catch(ui.updateWorkoutFailure)
+}
+
 module.exports = {
   onSignUp: onSignUp,
   onSignIn: onSignIn,
   onChangePassword: onChangePassword,
-  onSignOut: onSignOut
+  onSignOut: onSignOut,
+  onSaveWorkout: onSaveWorkout,
+  onShowWorkouts: onShowWorkouts,
+  onNewWorkout: onNewWorkout,
+  onDeleteWorkout: onDeleteWorkout,
+  onUpdateWorkouts: onUpdateWorkouts
 }

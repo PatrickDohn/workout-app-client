@@ -11,4 +11,11 @@ $(() => {
   $('#sign-in').on('submit', authEvents.onSignIn)
   $('#change-password').on('submit', authEvents.onChangePassword)
   $('#sign-out').on('submit', authEvents.onSignOut)
+
+  // workouts
+  $('#newWorkout').on('click', authEvents.onNewWorkout)
+  $('#saveWorkout').on('submit', authEvents.onSaveWorkout)
+  $('#showWorkouts').on('click', authEvents.onShowWorkouts)
+  $('.content').on('click', '.delete-btn', authEvents.onDeleteWorkout)
+  $('.content').on('submit', '.updateWorkout', authEvents.onUpdateWorkouts)
 })

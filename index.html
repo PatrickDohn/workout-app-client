@@ -12,15 +12,15 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">Oak Barbell</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
       <a class="nav-item nav-link active" href="#"> <span class="sr-only">(current)</span></a>
-      <div id="unauthenticated">
+      <div class="unauthenticated">
       <form id="sign-up">
         <input name="credentials[email]" placeholder="Email" type="text">
         <input type="password" name="credentials[password]" placeholder="Password">
@@ -34,7 +34,7 @@
         <button type="submit">Sign In</button>
       </form>
       </div>
-      <div id="authenticated">
+      <div class="authenticated">
       <a class="nav-item nav-link" href="#"></a>
         <form id="sign-out">
           <button type="submit">Sign Out</button>
@@ -49,7 +49,38 @@
     </div>
   </div>
 </nav>
+<div class="authenticated">
+  <button id="newWorkout">New Workout</button>
+  <button>My Log</button>
 
+  <form class="workoutForm" id="saveWorkout" action="/workouts" method="POST">
+    <label for="bodyPart"></label>
+    <select name="workout[bodyPart]" class="form-control">
+      <option value="" disabled selected hidden>Choose a Muscle Group</option>
+      <option value="Chest">Chest</option>
+      <option value="Back">Back</option>
+      <option value="Arms">Arms</option>
+      <option value="Legs">Legs</option>
+      <option value="Shoulders">Shoulers</option>
+    </select>
+    <label for="lift">Lift</label>
+    <input name="workout[lift]" type="text">
+    <input placeholder="Weight" name="workout[weight]" type="number">
+    <input placeholder="Reps" name="workout[reps]" type="number">
+    <input placeholder="Sets" name="workout[sets]" type="number">
+    <button type="submit">Finish Workout</button>
+  </form>
+
+  <p id="msg"></p>
+
+
+      <form id="showWorkouts">
+        <button type="submit" class="btn-outline-primary form-control" >View my workouts!</button>
+      </form>
+
+</div>
+
+    <div id="content" class="content"></div>
 
 
     </body>

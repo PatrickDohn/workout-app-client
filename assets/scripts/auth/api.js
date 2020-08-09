@@ -39,9 +39,56 @@ const signOut = function () {
   })
 }
 
+const saveWorkout = function (formData) {
+  return $.ajax({
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    },
+    url: config.apiUrl + '/workouts',
+    method: 'POST',
+    data: formData
+  })
+}
+
+const showWorkouts = function () {
+  return $.ajax({
+    url: config.apiUrl + '/workouts',
+    method: 'GET',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
+  })
+}
+
+const deleteWorkout = (workoutId) => {
+  return $.ajax({
+    url: config.apiUrl + `/workouts${workoutId}`,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
+  })
+}
+
+const updateWorkout = function (id, formData) {
+  console.log(id, formData)
+  return $.ajax({
+    url: config.apiUrl + '/workouts/' + id,
+    method: 'PATCH',
+    data: formData,
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   signUp: signUp,
   signIn: signIn,
   changePassword: changePassword,
-  signOut: signOut
+  signOut: signOut,
+  saveWorkout: saveWorkout,
+  showWorkouts: showWorkouts,
+  deleteWorkout: deleteWorkout,
+  updateWorkout: updateWorkout
 }

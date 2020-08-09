@@ -1,5 +1,9 @@
 @import '~bootstrap/scss/bootstrap';
 
-#authenticated {
+.authenticated {
+  display: none;
+}
+
+.workoutForm{
   display: none;
 }

@@ -1,0 +1,63 @@
+{{#each workouts as |workout|}}
+  {{log workout}}
+<section data-id="{{workout._id}}">
+    <h4>Body Part:</h4>
+    <h6>
+      {{workout.bodyPart}}
+    </h6>
+    <h4>Lift:</h4>
+    <h6>
+      {{workout.lift}}
+    </h6>
+    <h4>Weight:</h4>
+    <h6>
+      {{workout.weight}}
+    </h6>
+    <h4>Reps:</h4>
+    <h6>
+      {{workout.reps}}
+    </h6>
+    <h4>Sets:</h4>
+    <h6>
+      {{workout.sets}}
+    </h6>
+
+    <div class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Update Workout</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="updateWorkout" action="" method="PATCH">
+          <label for="bodyPart"></label>
+          <select name="workout[bodyPart]" class="form-control">
+            <option value="" disabled selected hidden>Choose a Muscle Group</option>
+            <option value="Chest">Chest</option>
+            <option value="Back">Back</option>
+            <option value="Arms">Arms</option>
+            <option value="Legs">Legs</option>
+            <option value="Shoulders">Shoulers</option>
+          </select>
+          <label for="lift">Lift</label>
+          <input name="workout[lift]" type="text">
+          <input placeholder="Weight" name="workout[weight]" type="number">
+          <input placeholder="Reps" name="workout[reps]" type="number">
+          <input placeholder="Sets" name="workout[sets]" type="number">
+          <button type="submit" class="form-control">Complete</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <p class="msg"></p>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+<button class="btn btn-outline-success update-btn" data-id="{{workout._id}}" <a href="/workouts/id" data-toggle="modal" data-target=".modal"</a>Update Workout</button>
+<button class="btn btn-outline-danger delete-btn" data-id="{{workout._id}}">Delete Workout</button>
+{{/each}}
