@@ -38,6 +38,7 @@ const onChangePassword = function (event) {
 const onSignOut = function (event) {
   console.log('Working sign out')
   event.preventDefault()
+  $('.content').empty()
   api.signOut()
     .then(ui.signOutSuccess)
     .catch(ui.signOutFail)
@@ -46,7 +47,6 @@ const onSignOut = function (event) {
 const onSaveWorkout = function (event) {
   event.preventDefault()
   const form = event.target
-  console.log('Where am i', form)
   const formData = getFormFields(form)
   console.log('Save workout', formData)
   api.saveWorkout(formData)
@@ -66,12 +66,11 @@ const onNewWorkout = function (event) {
 }
 const onDeleteWorkout = (event) => {
   event.preventDefault()
-  const workoutId = $(event.target.id).closest('section').data('id')
+  const workoutId = $(event.target).closest('section').data('id')
   console.log(workoutId)
   api.deleteWorkout(workoutId)
-    .then(ui.updateWorkoutSuccess)
     .then(() => onShowWorkouts(event))
-    .catch(ui.updateWorkoutFailure)
+    .catch(ui.showWorkoutFailure)
 }
 
 const onUpdateWorkouts = function (event) {

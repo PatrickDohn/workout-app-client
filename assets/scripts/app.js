@@ -11,6 +11,7 @@ $(() => {
   $('#sign-in').on('submit', authEvents.onSignIn)
   $('#change-password').on('submit', authEvents.onChangePassword)
   $('#sign-out').on('submit', authEvents.onSignOut)
+  $('.heading-img').attr('draggable', false)
 
   // workouts
   $('#newWorkout').on('click', authEvents.onNewWorkout)

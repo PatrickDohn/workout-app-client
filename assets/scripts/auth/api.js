@@ -41,12 +41,12 @@ const signOut = function () {
 
 const saveWorkout = function (formData) {
   return $.ajax({
-    headers: {
-      Authorization: 'Bearer ' + store.user.token
-    },
     url: config.apiUrl + '/workouts',
     method: 'POST',
-    data: formData
+    data: formData,
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
   })
 }
 
@@ -62,7 +62,7 @@ const showWorkouts = function () {
 
 const deleteWorkout = (workoutId) => {
   return $.ajax({
-    url: config.apiUrl + `/workouts${workoutId}`,
+    url: config.apiUrl + '/workouts/' + workoutId,
     method: 'DELETE',
     headers: {
       Authorization: 'Bearer ' + store.user.token

@@ -12,46 +12,77 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Oak Barbell</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="#"> <span class="sr-only">(current)</span></a>
-      <div class="unauthenticated">
-      <form id="sign-up">
-        <input name="credentials[email]" placeholder="Email" type="text">
-        <input type="password" name="credentials[password]" placeholder="Password">
-        <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
-        <button type="submit">Sign Up!</button>
-      </form>
-      <a class="nav-item nav-link" href="#"></a>
-      <form id="sign-in">
-        <input name="credentials[email]" placeholder="Email" type="text">
-        <input type="password" name="credentials[password]" placeholder="Password" >
-        <button type="submit">Sign In</button>
-      </form>
+
+      <div class="pos-f-t">
+        <div class="collapse" id="navbarToggleExternalContent">
+          <div class="navbar-custom">
+            <div class="unauthenticated">
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+              Create Account
+              </button>
+
+              <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel"></h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <form id="sign-up">
+                            <input name="credentials[email]" placeholder="Email" type="text">
+                            <input type="password" name="credentials[password]" placeholder="Password">
+                            <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+                          </form>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          <button type="submit" class="btn btn-primary">Sign Up!</button>
+                        </div>
+                      </div>
+                    </div>
+                    </div>
+
+            <a class="nav-item nav-link" href="#"></a>
+            <form id="sign-in">
+              <input name="credentials[email]" placeholder="Email" type="text">
+              <input type="password" name="credentials[password]" placeholder="Password" >
+              <button type="submit" class="btn btn-primary">Sign In</button>
+            </form>
+            </div>
+            <div class="authenticated">
+            <a class="nav-item nav-link" href="#"></a>
+              <form id="sign-out">
+                <button type="submit" class="btn btn-primary">Sign Out</button>
+              </form>
+            <a class="nav-item nav-link" href="#"></a>
+            <form id="change-password">
+              <input name="passwords[old]" placeholder="Old Password" type="password">
+              <input name="passwords[new]" placeholder="New Password" type="password">
+              <button type="submit" class="btn btn-primary">Change Password</button>
+            </form>
+            </div>
+          </div>
+        </div>
+        <nav class="navbar navbar-custom">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </nav>
       </div>
-      <div class="authenticated">
-      <a class="nav-item nav-link" href="#"></a>
-        <form id="sign-out">
-          <button type="submit">Sign Out</button>
-        </form>
-      <a class="nav-item nav-link" href="#"></a>
-      <form id="change-password">
-        <input name="passwords[old]" placeholder="Old Password" type="password">
-        <input name="passwords[new]" placeholder="New Password" type="password">
-        <button type="submit">Change Password</button>
-      </form>
+
+      <div id="header" class="unauthenticated">
+        <img class="heading-img" src="public/images/icon-2.png">
+        <h1>OAK</h1>
       </div>
-    </div>
-  </div>
-</nav>
+
+
+
 <div class="authenticated">
-  <button id="newWorkout">New Workout</button>
-  <button>My Log</button>
+  <button id="newWorkout" class="btn btn-primary">New Workout</button>
+
 
   <form class="workoutForm" id="saveWorkout" action="/workouts" method="POST">
     <label for="bodyPart"></label>
@@ -75,13 +106,13 @@
 
 
       <form id="showWorkouts">
-        <button type="submit" class="btn-outline-primary form-control" >View my workouts!</button>
+        <button type="submit" class="btn btn-primary form-control" >My Log</button>
       </form>
 
 </div>
-
+    <main class="info-display">
     <div id="content" class="content"></div>
-
+    </main>
 
     </body>
 </html>

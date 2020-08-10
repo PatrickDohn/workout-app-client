@@ -1,4 +1,56 @@
 @import '~bootstrap/scss/bootstrap';
+body {
+  margin: 0 auto;
+  background-color: #2b2d42;
+}
+
+.navbar-custom {
+  background-color: #2b2d42;
+}
+
+.collapse {
+  background-color: #2b2d42;
+}
+
+.modal-header {
+  background-color: #2b2d42;
+}
+
+.modal-body {
+  background-color: #d90429;
+}
+
+.modal-footer {
+  background-color: #2b2d42;
+}
+
+.navbar-toggler-icon {
+  color: #d90429;
+}
+
+.unauthenticated {
+  background-color: #2b2d42;
+}
+
+#header {
+  align-items: center;
+  display: flex;
+  background-color: #d90429;
+  flex-direction: column;
+  clip-path: polygon(50% 0%, 100% 0, 100% 65%, 50% 100%, 0 65%, 0 0)
+}
+
+h1 {
+  user-select: none;
+}
+
+.heading-img {
+  height: 200px;
+  width: 200px;
+  margin-left: 35px;
+  user-select: none;
+  pointer-events: none;
+}
 
 .authenticated {
   display: none;
@@ -6,4 +58,31 @@
 
 .workoutForm{
   display: none;
+}
+
+.info-display {
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+}
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.info {
+  border: 1px solid black;
+  border-radius: 8px;
+  margin: 2px;
+  padding: 2px;
+  background-color: #8D99AE;
+  color:#EDF2F4;
+}
+
+.info:hover {
+  background-color: lightgrey;
+  margin-left: 2px;
+  margin-top: 2px;
 }

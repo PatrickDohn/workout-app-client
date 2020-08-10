@@ -12,6 +12,7 @@ const signUpFailure = function () {
 const signInSuccess = function (response) {
   $('#message').text('Welcome back!')
   store.user = response.user
+  console.log(store.user)
   $('.authenticated').show()
   $('.unauthenticated').hide()
 }
@@ -40,6 +41,7 @@ const signOutFail = function () {
 const saveWorkoutSuccess = function (response) {
   $('#msg').text('Workout added')
   store.workout = response.workout
+  console.log(store.workout)
   console.log(store.workout)
   console.log('store: ', store)
   console.log('token: ', store.user.token)
