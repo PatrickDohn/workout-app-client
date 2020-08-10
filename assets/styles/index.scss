@@ -1,27 +1,29 @@
 @import '~bootstrap/scss/bootstrap';
+$bg-color: rgba(43, 45, 66, 1);
+
 body {
   margin: 0 auto;
-  background-color: #2b2d42;
+  background-color: $bg-color;
 }
 
 .navbar-custom {
-  background-color: #2b2d42;
+  background-color: $bg-color;
 }
 
 .collapse {
-  background-color: #2b2d42;
+  background-color: $bg-color;
 }
 
-.modal-header {
-  background-color: #2b2d42;
+.auth-head {
+  background-color: $bg-color;
 }
 
-.modal-body {
+.auth-body {
   background-color: #d90429;
 }
 
-.modal-footer {
-  background-color: #2b2d42;
+.auth-footer {
+  background-color: $bg-color;
 }
 
 .navbar-toggler-icon {
@@ -29,7 +31,7 @@ body {
 }
 
 .unauthenticated {
-  background-color: #2b2d42;
+  background-color: $bg-color;
 }
 
 #header {
@@ -42,6 +44,8 @@ body {
 
 h1 {
   user-select: none;
+  font-family: 'Bebas Neue', cursive;
+  color: $bg-color;
 }
 
 .heading-img {
@@ -78,7 +82,6 @@ h1 {
   margin: 2px;
   padding: 2px;
   background-color: #8D99AE;
-  color:#EDF2F4;
 }
 
 .info:hover {

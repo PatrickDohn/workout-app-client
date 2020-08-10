@@ -66,8 +66,7 @@ const onNewWorkout = function (event) {
 }
 const onDeleteWorkout = (event) => {
   event.preventDefault()
-  const workoutId = $(event.target).closest('section').data('id')
-  console.log(workoutId)
+  const workoutId = $(event.target).data('id')
   api.deleteWorkout(workoutId)
     .then(() => onShowWorkouts(event))
     .catch(ui.showWorkoutFailure)

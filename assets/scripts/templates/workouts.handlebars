@@ -1,26 +1,11 @@
 {{#each workouts as |workout|}}
-  {{log workout}}
 <section class="info" data-id="{{workout._id}}">
-    <h4>Body Part:</h4>
-    <h6>
-      {{workout.bodyPart}}
-    </h6>
-    <h4>Lift:</h4>
-    <h6>
-      {{workout.lift}}
-    </h6>
-    <h4>Weight:</h4>
-    <h6>
-      {{workout.weight}}
-    </h6>
-    <h4>Reps:</h4>
-    <h6>
-      {{workout.reps}}
-    </h6>
-    <h4>Sets:</h4>
-    <h6>
-      {{workout.sets}}
-    </h6>
+    <h4>Muscle Group: {{workout.bodyPart}}</h4>
+    <h4>Lift: {{workout.lift}}</h4>
+    <h4>Weight: {{workout.weight}}</h4>
+    <h4>Reps: {{workout.reps}}</h4>
+    <h4>Sets: {{workout.sets}}</h4>
+
 
 <div class="modal" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
@@ -60,5 +45,5 @@
 <button class="btn btn-outline-success update-btn" data-id="{{workout._id}}" <a href="/workouts/id" data-toggle="modal" data-target=".modal"</a>Update Workout</button>
 <button class="btn btn-outline-danger delete-btn" data-id="{{workout._id}}">Delete Workout</button>
 </section>
-
+{{log 'where is this' workout._id}}
 {{/each}}
