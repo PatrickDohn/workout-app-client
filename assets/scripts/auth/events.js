@@ -19,6 +19,7 @@ const onSignIn = function (event) {
   const form = event.target
   const formData = getFormFields(form)
   $('form').trigger('reset')
+  $('.btnText').show()
   api.signIn(formData)
     .then(ui.signInSuccess)
     .catch(ui.signInFail)
@@ -36,6 +37,7 @@ const onChangePassword = function (event) {
 const onSignOut = function (event) {
   event.preventDefault()
   $('.content').empty()
+  $('.btnText').hide()
   api.signOut()
     .then(ui.signOutSuccess)
     .catch(ui.signOutFail)

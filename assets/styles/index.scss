@@ -48,6 +48,17 @@ h1 {
   color: $bg-color;
 }
 
+.dropTextButton {
+  display: flex;
+  flex-direction: row;
+}
+
+.btnText {
+  display: none;
+  margin-left: 30px;
+  color: #d90429;
+}
+
 .heading-img {
   height: 200px;
   width: 200px;
