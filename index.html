@@ -36,11 +36,12 @@
                             <input name="credentials[email]" placeholder="Email" type="text">
                             <input type="password" name="credentials[password]" placeholder="Password">
                             <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+                            <button type="submit" class="btn btn-primary">Sign Up!</button>
                           </form>
                         </div>
                         <div class="modal-footer auth-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          <button type="submit" class="btn btn-primary">Sign Up!</button>
+
                         </div>
                       </div>
                     </div>
@@ -69,14 +70,14 @@
         </div>
         <nav class="navbar navbar-custom">
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"><img class="nav-img" src="public/images/Nav-arrow.png"></span>
           </button>
         </nav>
       </div>
 
       <div id="header" class="unauthenticated">
         <img class="heading-img" src="public/images/icon-2.png">
-        <h1>LIBER</h1>
+        <h1>FERRUM/LIBER</h1>
       </div>
 
 
@@ -84,30 +85,29 @@
 <div class="authenticated">
   <button id="newWorkout" class="btn btn-primary">New Workout</button>
 
-
-  <form class="workoutForm" id="saveWorkout" action="/workouts" method="POST">
-    <label for="bodyPart"></label>
-    <select name="workout[bodyPart]" class="form-control">
-      <option value="" disabled selected hidden>Choose a Muscle Group</option>
-      <option value="Chest">Chest</option>
-      <option value="Back">Back</option>
-      <option value="Arms">Arms</option>
-      <option value="Legs">Legs</option>
-      <option value="Shoulders">Shoulers</option>
-    </select>
-    <label for="lift">Lift</label>
-    <input name="workout[lift]" type="text">
-    <input placeholder="Weight" name="workout[weight]" type="number">
-    <input placeholder="Reps" name="workout[reps]" type="number">
-    <input placeholder="Sets" name="workout[sets]" type="number">
-    <button type="submit">Finish Workout</button>
-  </form>
-
+  <div class="the-form">
+      <form class="workoutForm" id="saveWorkout" action="/workouts" method="POST">
+        <label for="bodyPart"></label>
+        <select name="workout[bodyPart]" class="form-control">
+          <option value="" disabled selected hidden>Choose a Muscle Group</option>
+          <option value="Chest">Chest</option>
+          <option value="Back">Back</option>
+          <option value="Arms">Arms</option>
+          <option value="Legs">Legs</option>
+          <option value="Shoulders">Shoulers</option>
+        </select>
+        <input  style="text-transform: capitalize;" placeholder="Exercise" name="workout[lift]" type="text">
+        <input  placeholder="Weight" name="workout[weight]" type="number">
+        <input  placeholder="Reps" name="workout[reps]" type="number">
+        <input  placeholder="Sets" name="workout[sets]" type="number">
+        <button type="submit" class="btn btn-primary">Finish Workout</button>
+      </form>
+  </div>
   <p id="msg"></p>
 
 
       <form id="showWorkouts">
-        <button type="submit" class="btn btn-primary form-control" >My Log</button>
+        <button type="submit" class="btn btn-primary" >My Log</button>
       </form>
 
 </div>

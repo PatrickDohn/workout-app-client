@@ -15,6 +15,7 @@ const signInSuccess = function (response) {
   console.log(store.user)
   $('.authenticated').show()
   $('.unauthenticated').hide()
+  $('.collapse').collapse('hide')
 }
 const signInFail = function () {
   $('#message').text('Sign in failed')
@@ -32,6 +33,7 @@ const signOutSuccess = function () {
   $('#message').text('Signed out success!')
   $('.unauthenticated').show()
   $('.authenticated').hide()
+  $('.collapse').collapse('hide')
 }
 
 const signOutFail = function () {
@@ -39,16 +41,10 @@ const signOutFail = function () {
 }
 
 const saveWorkoutSuccess = function (response) {
-  $('#msg').text('Workout added')
   store.workout = response.workout
-  console.log(store.workout)
-  console.log(store.workout)
-  console.log('store: ', store)
-  console.log('token: ', store.user.token)
 }
 
 const showWorkoutsSuccess = (response) => {
-  console.log(response)
   const showAllWorkouts = workoutDisplayTemplate({ workouts: response.workouts })
   $('.content').empty()
   $('.content').append(showAllWorkouts)
@@ -66,4 +62,5 @@ module.exports = {
   signOutFail: signOutFail,
   saveWorkoutSuccess: saveWorkoutSuccess,
   showWorkoutsSuccess: showWorkoutsSuccess
+  // updateWorkoutSuccess: updateWorkoutSuccess
 }

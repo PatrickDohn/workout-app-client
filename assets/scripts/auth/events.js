@@ -4,7 +4,6 @@ const ui = require('./ui')
 const getFormFields = require('../../../lib/get-form-fields')
 
 const onSignUp = function (event) {
-  console.log('Working sign up')
   event.preventDefault()
   const form = event.target
   const formData = getFormFields(form)
@@ -26,7 +25,6 @@ const onSignIn = function (event) {
 }
 
 const onChangePassword = function (event) {
-  console.log('Working change password')
   event.preventDefault()
   const form = event.target
   const formData = getFormFields(form)
@@ -36,7 +34,6 @@ const onChangePassword = function (event) {
 }
 
 const onSignOut = function (event) {
-  console.log('Working sign out')
   event.preventDefault()
   $('.content').empty()
   api.signOut()
@@ -48,7 +45,7 @@ const onSaveWorkout = function (event) {
   event.preventDefault()
   const form = event.target
   const formData = getFormFields(form)
-  console.log('Save workout', formData)
+  $('form').trigger('reset')
   api.saveWorkout(formData)
     .then(ui.saveWorkoutSuccess)
     .catch(ui.saveWorkoutFailure)
@@ -77,9 +74,8 @@ const onUpdateWorkouts = function (event) {
   const form = event.target
   const formData = getFormFields(form)
   const id = $(event.target).closest('section').data('id')
-  console.log('update workout')
   api.updateWorkout(id, formData)
-    .then(ui.updateWorkoutSuccess)
+    .then(() => onShowWorkouts(event))
     .catch(ui.updateWorkoutFailure)
 }
 

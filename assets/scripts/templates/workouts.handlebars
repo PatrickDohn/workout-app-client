@@ -1,49 +1,59 @@
 {{#each workouts as |workout|}}
 <section class="info" data-id="{{workout._id}}">
-    <h4>Muscle Group: {{workout.bodyPart}}</h4>
-    <h4>Lift: {{workout.lift}}</h4>
-    <h4>Weight: {{workout.weight}}</h4>
-    <h4>Reps: {{workout.reps}}</h4>
-    <h4>Sets: {{workout.sets}}</h4>
+    <h4><u>Muscle Group</u>: {{workout.bodyPart}}</h4>
+    <h4><u>Lift</u>: {{workout.lift}}</h4>
+    <h4><u>Weight</u>: {{workout.weight}}</h4>
+    <h4><u>Reps</u>: {{workout.reps}}</h4>
+    <h4><u>Sets</u>: {{workout.sets}}</h4>
 
+    <div class="dropdown">
+      <a class="btn btn-secondary dropdown-toggle" data-offset="10,20" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Update Work
+      </a>
 
-<div class="modal" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Update Workout</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
+      <div class="dropdown-menu">
         <form class="updateWorkout" action="" method="PATCH">
           <label for="bodyPart"></label>
           <select name="workout[bodyPart]" class="form-control">
-            <option value="" disabled selected hidden>Choose a Muscle Group</option>
+            <option value="" disabled selected hidden>Muscle Group</option>
             <option value="Chest">Chest</option>
             <option value="Back">Back</option>
             <option value="Arms">Arms</option>
             <option value="Legs">Legs</option>
             <option value="Shoulders">Shoulers</option>
           </select>
-          <label for="lift">Lift</label>
-          <input name="workout[lift]" type="text">
-          <input placeholder="Weight" name="workout[weight]" type="number">
-          <input placeholder="Reps" name="workout[reps]" type="number">
-          <input placeholder="Sets" name="workout[sets]" type="number">
-          <button type="submit" class="form-control">Complete</button>
+          <input style="text-transform: capitalize;" placeholder="Exercise" name="workout[lift]" type="text">
+          <input  placeholder="Weight" name="workout[weight]" type="number">
+          <input  placeholder="Reps" name="workout[reps]" type="number">
+          <input  placeholder="Sets" name="workout[sets]" type="number">
+          <button class="btn btn-primary" button"submit" class="updateWorkout" data-id="{{workout._id}}">Complete</button>
         </form>
       </div>
-      <div class="modal-footer">
-        <p class="msg"></p>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
+
     </div>
-  </div>
-</div>
-<button class="btn btn-outline-success update-btn" data-id="{{workout._id}}" <a href="/workouts/id" data-toggle="modal" data-target=".modal"</a>Update Workout</button>
+
+
 <button class="btn btn-outline-danger delete-btn" data-id="{{workout._id}}">Delete Workout</button>
 </section>
 {{log 'where is this' workout._id}}
 {{/each}}
+
+<!-- <button class="btn btn-outline-success update-btn" data-id="{{workout._id}}" <a href="/workouts/id" data-toggle="modal" data-target=".modal"</a>Update Workout</button> -->
+
+<!-- <form class="updateWorkout" action="" method="PATCH">
+  <label for="bodyPart"></label>
+  <select name="workout[bodyPart]" class="form-control">
+    <option value="" disabled selected hidden>Choose a Muscle Group</option>
+    <option value="Chest">Chest</option>
+    <option value="Back">Back</option>
+    <option value="Arms">Arms</option>
+    <option value="Legs">Legs</option>
+    <option value="Shoulders">Shoulers</option>
+  </select>
+  <label for="lift">Lift</label>
+  <input name="workout[lift]" type="text">
+  <input placeholder="Weight" name="workout[weight]" type="number">
+  <input placeholder="Reps" name="workout[reps]" type="number">
+  <input placeholder="Sets" name="workout[sets]" type="number">
+  <button type="submit" class="form-control">Complete</button>
+</form> -->

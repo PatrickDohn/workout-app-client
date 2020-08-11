@@ -14,7 +14,13 @@ $(() => {
   $('.heading-img').attr('draggable', false)
 
   // workouts
-  $('#newWorkout').on('click', authEvents.onNewWorkout)
+  $(function () {
+    $('#newWorkout').on('click', authEvents.onNewWorkout, function () {
+      $('#saveWorkout').slideToggle(300)
+      $('.workoutForm').show()
+      $('.content').empty()
+    })
+  })
   $('#saveWorkout').on('submit', authEvents.onSaveWorkout)
   $('#showWorkouts').on('click', authEvents.onShowWorkouts)
   $('.content').on('click', '.delete-btn', authEvents.onDeleteWorkout)

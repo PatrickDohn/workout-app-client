@@ -54,6 +54,9 @@ const showWorkouts = function () {
   return $.ajax({
     url: config.apiUrl + '/workouts',
     method: 'GET',
+    data: {
+      user: store.user.id
+    },
     headers: {
       Authorization: 'Bearer ' + store.user.token
     }
