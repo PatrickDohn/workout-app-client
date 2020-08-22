@@ -42,10 +42,15 @@ body {
   clip-path: polygon(50% 0%, 100% 0, 100% 65%, 50% 100%, 0 65%, 0 0)
 }
 
-h1 {
+.titleText {
   user-select: none;
   font-family: 'Bebas Neue', cursive;
   color: $bg-color;
+}
+@media screen and (max-width: 1000px) {
+  .titleText {
+    margin-bottom: 50px;
+  }
 }
 
 .dropTextButton {
@@ -71,6 +76,11 @@ h1 {
   display: none;
 }
 
+.workoutCreated {
+  color: #d90429;
+  text-align: center;
+}
+
 #newWorkout {
   margin-left: 30%;
 }
@@ -89,11 +99,26 @@ h1 {
   margin: 0 auto;
 }
 
+#userMessage {
+  color: #d90429;
+}
+
+#authMessage {
+  color: #d90429;
+}
+
 .content {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
 }
+
+.logMessage {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  color: #d90429;
+}
+
 
 .nav-img {
   height: 30px;

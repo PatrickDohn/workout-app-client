@@ -2,7 +2,9 @@ const store = require('../store')
 const workoutDisplayTemplate = require('../templates/workouts.handlebars')
 
 const signUpSuccess = function () {
-  $('#message').text('Successfully signed up!')
+  $('.signUpMsg').text('Sign up successful!').fadeIn(3000, function () {
+    $('.signUpMsg').fadeOut(3000)
+  })
 }
 
 const signUpFailure = function () {
@@ -10,38 +12,51 @@ const signUpFailure = function () {
 }
 
 const signInSuccess = function (response) {
-  $('#message').text('Welcome back!')
+  $('#userMessage').text('Welcome back!').fadeIn(30, function () {
+    $('#userMessage').fadeOut(3000)
+  })
+  $('.btnText').show()
   store.user = response.user
-  console.log(store.user)
   $('.authenticated').show()
   $('.unauthenticated').hide()
   $('.collapse').collapse('hide')
 }
 const signInFail = function () {
-  $('#message').text('Sign in failed')
+  $('#userMessage').text('Username or password was invalid').fadeIn(300, function () {
+    $('#userMessage').fadeOut(3000)
+  })
 }
 
 const changePasswordSuccess = function () {
-  $('#message').text('Successfully changed password!')
+  $('#authMessage').text('Successfully changed password').fadeIn(30, function () {
+    $('#authMessage').fadeOut(3000)
+  })
 }
 
 const changePasswordFail = function () {
-  $('#message').text('Password change failed')
+  $('#authMessage').text('Something went wrong').fadeIn(30, function () {
+    $('#authMessage').fadeOut(3000)
+  })
 }
 
 const signOutSuccess = function () {
-  $('#message').text('Signed out success!')
+  $('#userMessage').text('See ya later!').fadeIn(30, function () {
+    $('#userMessage').fadeOut(3000)
+  })
   $('.unauthenticated').show()
   $('.authenticated').hide()
   $('.collapse').collapse('hide')
 }
 
 const signOutFail = function () {
-  $('#message').text('Signed out fail')
+  $('#userMessage').text('Signed out fail')
 }
 
 const saveWorkoutSuccess = function (response) {
   store.workout = response.workout
+  $('.workoutCreated').text('Workout has been saved!').fadeIn(30, function () {
+    $('.workoutCreated').fadeOut(3000)
+  })
 }
 
 const showWorkoutsSuccess = (response) => {
@@ -49,6 +64,11 @@ const showWorkoutsSuccess = (response) => {
   $('.content').empty()
   $('.content').append(showAllWorkouts)
   $('.content').show()
+  if (response.workouts.length === 0) {
+    $('.logMessage').text('No workouts yet, lets get lifting!').fadeIn(30, function () {
+      $('.logMessage').fadeOut(3000)
+    })
+  }
 }
 
 module.exports = {
@@ -62,5 +82,4 @@ module.exports = {
   signOutFail: signOutFail,
   saveWorkoutSuccess: saveWorkoutSuccess,
   showWorkoutsSuccess: showWorkoutsSuccess
-  // updateWorkoutSuccess: updateWorkoutSuccess
 }

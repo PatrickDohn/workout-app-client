@@ -74,7 +74,6 @@ const deleteWorkout = (workoutId) => {
 }
 
 const updateWorkout = function (id, formData) {
-  console.log(id, formData)
   return $.ajax({
     url: config.apiUrl + '/workouts/' + id,
     method: 'PATCH',

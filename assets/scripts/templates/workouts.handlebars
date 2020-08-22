@@ -1,10 +1,15 @@
 {{#each workouts as |workout|}}
 <section class="info" data-id="{{workout._id}}">
-    <h4><u>Muscle Group</u>: {{workout.bodyPart}}</h4>
-    <h4><u>Lift</u>: {{workout.lift}}</h4>
-    <h4><u>Weight</u>: {{workout.weight}}</h4>
-    <h4><u>Reps</u>: {{workout.reps}}</h4>
-    <h4><u>Sets</u>: {{workout.sets}}</h4>
+    <h4><u>Muscle Group</u>:
+      {{workout.bodyPart}}</h4>
+    <h4><u>Lift</u>:
+      {{workout.lift}}</h4>
+    <h4><u>Weight</u>:
+      {{workout.weight}}lbs</h4>
+    <h4><u>Reps</u>:
+      {{workout.reps}}</h4>
+    <h4><u>Sets</u>:
+      {{workout.sets}}</h4>
 
     <div class="dropdown">
       <a class="btn btn-secondary dropdown-toggle" data-offset="10,20" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -35,7 +40,6 @@
 
 <button class="btn btn-outline-danger delete-btn" data-id="{{workout._id}}">Delete Workout</button>
 </section>
-{{log 'where is this' workout._id}}
 {{/each}}
 
 <!-- <button class="btn btn-outline-success update-btn" data-id="{{workout._id}}" <a href="/workouts/id" data-toggle="modal" data-target=".modal"</a>Update Workout</button> -->
