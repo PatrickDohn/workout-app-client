@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>FERRUM/LIBER</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+      <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    </head>
+    <body>
+
+      <div class="pos-f-t">
+        <div class="collapse" id="navbarToggleExternalContent">
+          <div class="navbar-custom">
+            <div class="unauthenticated">
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+              Create Account
+              </button>
+
+              <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header auth-head">
+                          <h5 class="modal-title" id="exampleModalLabel"></h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body auth-body">
+                          <form id="sign-up">
+                            <p class="signUpMsg"></p>
+                            <input name="credentials[email]" placeholder="Email" type="text">
+                            <input type="password" name="credentials[password]" placeholder="Password">
+                            <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+                            <button type="submit" class="btn btn-primary">Sign Up!</button>
+                          </form>
+                        </div>
+                        <div class="modal-footer auth-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                        </div>
+                      </div>
+                    </div>
+                    </div>
+
+            <a class="nav-item nav-link" href="#"></a>
+            <form id="sign-in">
+              <input name="credentials[email]" placeholder="Email" type="text">
+              <input type="password" name="credentials[password]" placeholder="Password" >
+              <button type="submit" class="btn btn-primary">Sign In</button>
+            </form>
+            </div>
+            <div class="authenticated">
+            <a class="nav-item nav-link" href="#"></a>
+              <form id="sign-out">
+                <button type="submit" class="btn btn-primary">Sign Out</button>
+                <p id="authMessage"></p>
+              </form>
+            <a class="nav-item nav-link" href="#"></a>
+            <form id="change-password">
+              <input name="passwords[old]" placeholder="Old Password" type="password">
+              <input name="passwords[new]" placeholder="New Password" type="password">
+              <button type="submit" class="btn btn-primary">Change Password</button>
+            </form>
+            </div>
+          </div>
+        </div>
+        <nav class="navbar navbar-custom">
+          <button class="navbar-toggler dropTextButton" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"><img class="nav-img" src="public/images/Nav-arrow.png"></span><h5 class="btnText">FERRUM/LIBER</h5>
+          </button>
+          <p id="userMessage"></p>
+        </nav>
+      </div>
+
+      <div id="header" class="unauthenticated">
+        <img class="heading-img" src="public/images/icon-2.png">
+        <h1 class="titleText">FERRUM/LIBER</h1>
+      </div>
+
+
+
+<div class="authenticated">
+  <button id="newWorkout" class="btn btn-primary">New Workout</button>
+  <p class="workoutCreated"></p>
+
+  <div class="the-form">
+      <form class="workoutForm" id="saveWorkout" action="/workouts" method="POST">
+        <label for="bodyPart"></label>
+        <select name="workout[bodyPart]" class="form-control">
+          <option value="" disabled selected hidden>Choose a Muscle Group</option>
+          <option value="Chest">Chest</option>
+          <option value="Back">Back</option>
+          <option value="Arms">Arms</option>
+          <option value="Legs">Legs</option>
+          <option value="Shoulders">Shoulers</option>
+        </select>
+        <input  style="text-transform: capitalize;" placeholder="Exercise" name="workout[lift]" type="text">
+        <input  placeholder="Weight" name="workout[weight]" type="number">
+        <input  placeholder="Reps" name="workout[reps]" type="number">
+        <input  placeholder="Sets" name="workout[sets]" type="number">
+        <button type="submit" class="btn btn-primary">Finish Workout</button>
+      </form>
+  </div>
+  <p id="msg"></p>
+
+
+      <form id="showWorkouts">
+        <button type="submit" class="btn btn-primary" >My Log</button>
+      </form>
+
+</div>
+    <main class="info-display">
+    <p class="logMessage"></p>
+    <div id="content" class="content"></div>
+    </main>
+
+    </body>
+</html>
