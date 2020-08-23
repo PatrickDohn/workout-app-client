@@ -68,6 +68,9 @@ const onDeleteWorkout = (event) => {
   const workoutId = $(event.target).data('id')
   api.deleteWorkout(workoutId)
     .then(() => onShowWorkouts(event))
+  $('.workoutCreated').text('Workout has been deleted!').fadeIn(30, function () {
+    $('.workoutCreated').fadeOut(3000)
+  })
     .catch(ui.showWorkoutFailure)
 }
 
@@ -78,6 +81,9 @@ const onUpdateWorkouts = function (event) {
   const id = $(event.target).closest('section').data('id')
   api.updateWorkout(id, formData)
     .then(() => onShowWorkouts(event))
+  $('.workoutCreated').text('Workout has been updated!').fadeIn(30, function () {
+    $('.workoutCreated').fadeOut(3000)
+  })
     .catch(ui.updateWorkoutFailure)
 }
 
